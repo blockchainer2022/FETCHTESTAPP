@@ -1,37 +1,21 @@
-import React, { useEffect, useState } from "react";
-import axios from "axios";
+// import React, { useEffect, useState } from "react";
+// import axios from "axios";
 const Test = ({ match }) => {
-  const [data, SetData] = useState({});
-  const [loading, SetLoading] = useState(true);
-  const [error, SetError] = useState(false);
+  // const [data, SetData] = useState({});
+  // const [loading, SetLoading] = useState(true);
+  // const [error, SetError] = useState(false);
 
   const { id } = match.params;
-
-  useEffect(() => {
-    const getData = async () => {
-      try {
-        SetLoading(true);
-        const { data } = await axios.get(
-          `https://ipfs.io/ipfs/QmbKjG9DR2KfHmdkjbuRDnXWkm84BUnrYBm3aWDc4pikAT/${id}`,
-          {
-            headers: {
-              "Content-Type": "application/json",
-            },
-          }
-        );
-
-        SetData(data);
-        SetLoading(false);
-      } catch (error) {
-        SetError(true);
-      }
-    };
-    getData();
-  }, [id]);
-
+  const data = {
+    name: `NFC Certificate #0000${id}`,
+    description: "NFC certificate to prove the authenticity",
+    image:
+      "https://ipfs.io/ipfs/QmRnqRPHzrqZm15hSbvvPSdCGDsNJqbT8KEyJci8X327Ak",
+    external_url: "https://xyz.com",
+  };
   return (
     <div>
-      {error ? (
+      {/* {error ? (
         "Sorry Something is Wrong "
       ) : loading ? (
         "Wait Data is on the way"
@@ -39,7 +23,8 @@ const Test = ({ match }) => {
         <pre>
           <>{JSON.stringify(data, undefined, 2)}</>
         </pre>
-      )}
+      )} */}
+      <pre>{JSON.stringify(data, undefined, 2)}</pre>
     </div>
   );
 };

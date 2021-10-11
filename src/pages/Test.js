@@ -12,7 +12,12 @@ const Test = ({ match }) => {
       try {
         SetLoading(true);
         const { data } = await axios.get(
-          `https://ipfs.io/ipfs/QmbKjG9DR2KfHmdkjbuRDnXWkm84BUnrYBm3aWDc4pikAT/${id}`
+          `https://ipfs.io/ipfs/QmbKjG9DR2KfHmdkjbuRDnXWkm84BUnrYBm3aWDc4pikAT/${id}`,
+          {
+            headers: {
+              "Content-Type": "application/json",
+            },
+          }
         );
 
         SetData(data);
@@ -31,10 +36,9 @@ const Test = ({ match }) => {
       ) : loading ? (
         "Wait Data is on the way"
       ) : (
-        <>
-          <h1>{data.name}</h1>
-          <img src={data.image} alt="dataImage" style={{ width: 300 }} />
-        </>
+        <pre>
+          <>{JSON.stringify(data, undefined, 2)}</>
+        </pre>
       )}
     </div>
   );

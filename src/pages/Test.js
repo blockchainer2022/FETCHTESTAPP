@@ -10,7 +10,7 @@ const Test = ({ match }) => {
     name: `NFC Certificate #0000${id}`,
     description: "NFC certificate to prove the authenticity",
     image:
-      "https://ipfs.io/ipfs/QmRnqRPHzrqZm15hSbvvPSdCGDsNJqbT8KEyJci8X327Ak",
+      "https://ipfs.io/ipfs/QmUMXovq7NRFsjwqfpd7Bg1XyHqBgH1oaiiNfRgHemjvo8",
     external_url: "https://xyz.com",
   };
   return (
